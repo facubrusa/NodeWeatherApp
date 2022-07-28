@@ -1,0 +1,32 @@
+{
+  "name": "weatherapp",
+  "version": "0.1.0",
+  "description": "Weather app made in NodeJS and using Weather API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/index.js",
+    "start": "node ./src/index.js",
+    "lint": "eslint"
+  },
+  "keywords": [
+    "weather",
+    "nodejs",
+    "telecom"
+  ],
+  "author": "Facundo Brusa",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1"
+  }
+}
