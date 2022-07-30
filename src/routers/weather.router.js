@@ -2,6 +2,7 @@ const express = require('express');
 const config = require('../../config/config');
 const request = require('request');
 const ipapi = require('ipapi.co');
+const requestIp = require('request-ip');
 
 const router = express.Router();
 
@@ -126,9 +127,8 @@ router.get('/location', async (req, res) => {
 
 router.get('/ip', async (req, res) => {
     try {
-        const remoteAddress = req.socket.remoteAddress;
-        const ip = req.ip;
-        const response = `Your ip adress can be: ${remoteAddress} or can be ${ip}`;
+        const clientIp = requestIp.getClientIp(req);
+        const response = `Your ip adress is ${clientIp}`;
         res.send(response);
     } catch (error) {
         // Print the error in console and send generic error to view
