@@ -1,12 +1,13 @@
 {
     "parserOptions": {
-      "ecmaVersion": 2018
+      "ecmaVersion": 2019
     },
     "extends": ["eslint:recommended", "prettier"],
     "env": {
       "es6": true,
       "node": true,
-      "jest": true
+      "jest": true,
+      "jquery": true
     },
     "rules": {
       "no-console": "warn"

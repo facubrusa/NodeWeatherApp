@@ -1,0 +1,33 @@
+body {
+    width: auto;
+    margin: 0 auto;
+    font-family: "Open Sans", sans-serif;
+  }
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.ms-1 {
+    margin-left: 0.25rem!important;
+}
+
+.fa-fw {
+    text-align: center;
+    width: 1.25em;
+}
+
+.fostrap-logo {
+    width: 100px;
+    margin-bottom:15px
+}
+
+.location-info p {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#locationCard span {
+    font-size: 16px;
+}
