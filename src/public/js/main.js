@@ -17,10 +17,10 @@ $(function (){
         }
 
         // Redirect to url with the city
+        // eslint-disable-next-line no-undef
         location.href = `/v1/current/${city}`;
     });
 
-    $('#btnLocation').click(function () {
-        console.log('click location');
-    });
+    // eslint-disable-next-line no-undef
+    $('#btnLocation').click(() => location.href = '/v1/current/');
 });
