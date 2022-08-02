@@ -9,8 +9,7 @@ class LocationService {
     }
 
     async getClientIp(req) {
-        // const clientIp = await requestIp.getClientIp(req);
-        const clientIp = '190.105.217.131';
+        const clientIp = await requestIp.getClientIp(req);
         if (!clientIp) {
             throw boom.conflict('Error getting client ip, please try again');
         }
