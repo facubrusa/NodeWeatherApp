@@ -1,0 +1,120 @@
+body {
+    width: auto;
+    margin: 0 auto;
+    font-family: "Open Sans", sans-serif;
+  }
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.ms-1 {
+    margin-left: 0.25rem!important;
+}
+
+.fa-fw {
+    text-align: center;
+    width: 1.25em;
+}
+
+.fostrap-logo {
+    width: 100px;
+    margin-bottom:15px
+}
+
+.location-info p {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#locationCard span {
+    font-size: 16px;
+}
+
+.ip_demo {
+    display: flex;
+    margin: 0 auto;
+    background: #e4ecf9;
+    width: 400px;
+    min-height: 260px;
+    border-radius: 12px;
+    box-shadow: 1px 1px 5px 0 rgb(26 26 67 / 5%), 39px 62.5px 125px -25px rgb(50 50 93 / 20%), 23.4px 37.5px 75px -37.5px rgb(0 0 0 / 40%);
+}
+
+.ip_demo .ip_body {
+    padding: 20px 0 0;
+    color: #333;
+    display: block;
+    height: 100%;
+    line-height: normal;
+}
+
+.ip_demo .ip_body .category {
+    display: block;
+}
+
+.ip_demo .ip_body .topic.coordinates .left,
+.ip_demo .ip_body .topic.coordinates .right {
+    padding-top: 10px;
+}
+
+.ip_demo .ip_body .topic.other {
+    margin-top: 70px;
+}
+
+.ip_demo .ip_body .topic .left {
+    width: 200px;
+    border-right: 1px solid rgba(0, 0, 0, .075);
+    border-bottom: 1px solid rgba(0, 0, 0, .075);
+    border-top: 1px solid rgba(0, 0, 0, .075);
+    float: left;
+}
+
+.ip_demo .ip_body .topic .right {
+    width: 200px;
+    border-top: 1px solid rgba(0, 0, 0, .075);
+    border-bottom: 1px solid rgba(0, 0, 0, .075);
+    float: right;
+}
+
+.ip_demo .ip_body .topic p {
+    line-height: 20px;
+    margin: 0;
+    padding: 5px 10px;
+}
+
+.ip_demo .ip_body .topic p>span:nth-child(1) {
+    font-family: Promo, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 11px;
+    width: auto;
+    display: block;
+    line-height: 18px;
+}
+
+.ip_demo .ip_body .topic .loc_header {
+    padding: 14px 10px 14px 5px;
+    text-align: center;
+    clear: both;
+}
+
+.separator {
+    height: 1px;
+    width: 100%;
+    margin: 25px 0;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.separator::before {
+    content: "or";
+    color: #b3b3b3;
+    font-size: 1.18em;
+    padding: 0 15px;
+    background: #fff;
+}
