@@ -17,9 +17,12 @@ routerApi(app);
 // static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(config.port, () => {
-    console.log(`Server is running on port ${config.port}`);
+// not found
+app.use((req, res) => {
+    res.status(404).render("404");
 });
+
+app.listen(config.port);
 
 app.use(logErrors);
 app.use(errorHandler);
