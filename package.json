@@ -17,11 +17,11 @@
   "author": "Facundo Brusa",
   "license": "ISC",
   "dependencies": {
+    "@hapi/boom": "^10.0.0",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
-    "ipapi.co": "^0.3.0",
-    "node-fetch": "^3.2.10",
+    "node-fetch": "^2.6.7",
     "path": "^0.12.7",
     "request": "^2.88.2",
     "request-ip": "^3.3.0"

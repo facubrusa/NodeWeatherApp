@@ -44,17 +44,35 @@
             </div>
         </nav>
         <div class="container py-5 h-100">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2 class="text-center">5-days forecast</h2>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <% if(error !== null){ %>
+                        <div class="alert alert-danger text-center" role="alert">
+                            <h5><%= error %></h5>
+                        </div>
+                    <% } %>
+                    <div class="alert alert-danger text-center hide" id="alertMessage" role="alert"></div>
+                    <h3 class="text-center font-weight-bold">5-days Forecast</h3>
+                    <form action="#" method="post" id="forecastForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" name="city" placeholder="Enter a City" aria-describedby="enterCity">
+                        </div>
+                        <input type="submit" class="btn btn-outline-primary btn-lg btn-block" value="Get forecast by city">
+                        <div class="separator"></div>
+                        <input type="button" class="btn btn-outline-info btn-lg btn-block" id="btnForecastLoc" value="Get forecast by device location">
+                    </form>
                 </div>
-                <div class="col-6">
+
+                <% if(forecast !== null){ %>
+
+                <div class="col-12 col-md-6">
                     <div class="card" style="color: #4B515D; border-radius: 20px;">
                         <div class="card-body p-4">
-                            <% listWeather.forEach(weather => { %>
+                            <h5 class="text-center mb-4"><%= city %></h5>
+                            <% forecast.forEach(weather => { %>
                                 <div class="row">
                                     <div class="col-4">
-                                        <span><%= weather.time %></span>
+                                        <span><%= weather.date %></span>
                                     </div>
                                     <div class="col-4">
                                         <p>
@@ -63,27 +81,16 @@
                                         </p>
                                     </div>
                                     <div class="col-4">
-                                        <span><%= weather.description %></span>
+                                        <span class="text-capitalize"><%= weather.description %></span>
                                     </div>
                                 </div>
                              <% }); %>
-                            <!-- <div class="row">
-                                <div class="col-4">
-                                    <span>Sunday Jul 31</span>
-                                </div>
-                                <div class="col-4">
-                                    <p>
-                                        <span><i class="fas fa-cloud-sun fa-lg text-info"></i></span>
-                                        <span>23 / 10&deg;C</span>
-                                    </p>
-                                </div>
-                                <div class="col-4">
-                                    <span>Overcast clouds</span>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
+
+                <% } %>
+
             </div>
         </div>
         <script

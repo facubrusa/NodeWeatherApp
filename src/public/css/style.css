@@ -100,3 +100,21 @@ body {
     text-align: center;
     clear: both;
 }
+
+.separator {
+    height: 1px;
+    width: 100%;
+    margin: 25px 0;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.separator::before {
+    content: "or";
+    color: #b3b3b3;
+    font-size: 1.18em;
+    padding: 0 15px;
+    background: #fff;
+}

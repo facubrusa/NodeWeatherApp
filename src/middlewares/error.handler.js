@@ -7,10 +7,17 @@ function logErrors(err, req, res, next) {
 
 function errorHandler(err, req, res, next) {
     console.log('enter into errorHandler');
-    res.status(500).json({
-      message: err.message,
-      stack: err.stack,
-    });
+    if(err.isBoom) {
+        const { output } = err;
+        res.status(output.statusCode).json(output.payload);
+    } else {
+        res.status(500).json({
+            message: err.message,
+            stack: err.stack,
+        });
+    }
+    // If the error isn't controlated for boom, create general error handler
+    next();
   }
 
 module.exports = { logErrors, errorHandler };
