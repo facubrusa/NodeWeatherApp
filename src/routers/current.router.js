@@ -15,9 +15,10 @@ router.get('/', async (req, res) => {
 
         // get client location
         const location = await locationService.getLocation(clientIp);
+        const city = `${location.city}, ${location.countryCode}`
 
         // get current weather
-        const weather = await currentService.getByCoordinates(location.lat, location.lon);
+        const weather = await currentService.getByCity(city);
 
         // generate response with the data received
         const date = new Date();

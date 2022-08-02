@@ -15,10 +15,10 @@ router.get('/', async (req, res) => {
 
         // get client location
         const location = await locationService.getLocation(clientIp);
-        const city = `${location.city} (${location.regionName})`;
+        const city = `${location.city}, ${location.countryCode}`
 
         // get forecast weather
-        const forecast = await forecastService.getByCoordinates(location.lat, location.lon);
+        const forecast = await forecastService.getByCity(city);
 
         let newForecast = [];
         forecast.forEach(weather => {

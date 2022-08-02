@@ -13,18 +13,6 @@ class CurrentService {
         const res = await fetch(url);
         const weather = await res.json();
 
-        return this.generateResponse(weather);
-    }
-
-    async getByCoordinates(lat, lon) {
-        const url = `${this.weatherApiUrl}/weather?lat=${lat}&lon=${lon}&units=metric&appid=${config.apiKey}`;
-        const res = await fetch(url);
-        const weather = await res.json();
-
-        return this.generateResponse(weather);
-    }
-
-    generateResponse(weather) {
         if (!weather) {
             throw boom.conflict('Error getting current weather, please try again');
         }
@@ -33,6 +21,7 @@ class CurrentService {
         }
         return weather;
     }
+
 }
 
 module.exports = CurrentService;

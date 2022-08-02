@@ -13,18 +13,6 @@ class ForecastService {
         const res = await fetch(url);
         const forecast = await res.json();
 
-        return this.generateResponse(forecast);
-    }
-
-    async getByCoordinates(lat, lon) {
-        const url = `${this.weatherApiUrl}/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${config.apiKey}`;
-        const res = await fetch(url);
-        const forecast = await res.json();
-
-        return this.generateResponse(forecast);
-    }
-
-    generateResponse(forecast) {
         if (forecast.cod !== '200') {
             throw boom.conflict('Error getting forecast, please try again');
         }

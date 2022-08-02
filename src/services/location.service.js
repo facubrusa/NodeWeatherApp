@@ -20,12 +20,11 @@ class LocationService {
         const url = `${this.ipApiUrl}/${clientIp}`;
         const res = await fetch(url);
         const location = await res.json();
-
-        const { status, city, lat, lon  } = location;
+        const { status, city  } = location;
         if (status !== 'success') {
             throw boom.notFound('Error getting client location, please try again');
         }
-        if (!city || !lat || !lon) {
+        if (!city) {
             throw boom.badRequest('Error getting client location info, please try again');
         }
         return location;
