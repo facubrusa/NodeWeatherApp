@@ -1,6 +1,6 @@
 # NodeWeatherApp
 
-Check the current weather or forecast on any city on the planet.
+Check the current weather or forecast of any city on the planet.
 
 This is a weather app made in NodeJS, with Express and OpenWeatherAPI.
 
