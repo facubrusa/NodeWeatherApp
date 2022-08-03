@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const config = require('../config/config');
 const routerApi = require('./routers/index');
 const { logErrors, errorHandler } = require('./middlewares/error.handler');
 
@@ -17,13 +16,8 @@ routerApi(app);
 // static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// not found
-app.use((req, res) => {
-    res.status(404).render("404");
-});
-
-app.listen(config.port);
-
 app.use(logErrors);
 app.use(errorHandler);
+
+module.exports = app;
 
