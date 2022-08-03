@@ -1,8 +1,10 @@
 # NodeWeatherApp
 
-Check the current weather on any city on the planet.
+Check the current weather or forecast on any city on the planet.
 
 This is a weather app made in NodeJS, with Express and OpenWeatherAPI.
+
+The project with views was deployed in this heroku link: https://nodejs-weather-appv1.herokuapp.com/v1/
 
 ## Features
 
@@ -36,6 +38,13 @@ This is a weather app made in NodeJS, with Express and OpenWeatherAPI.
 7. Paste API key for `API_KEY` in .env file created
 
 8. `npm run dev`
+
+## Running the Tests
+The unit tests are based on jest, which may be installed via npm. To run the tests make sure that the npm dependencies are installed by running npm install from the project directory.
+
+`npm run test`
+
+Note that a connection to the internet is required to run the tests.
 
 ## Contributions
 
