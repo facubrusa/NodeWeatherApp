@@ -39,6 +39,16 @@ The project with views was deployed in this heroku link: https://nodejs-weather-
 
 8. `npm run dev`
 
+## Example of .env file
+
+```
+
+PORT=3000
+NODE_ENV=development
+API_KEY={YOUR_API_KEY}
+
+```
+
 ## Running the Tests
 The unit tests are based on jest, which may be installed via npm. To run the tests make sure that the npm dependencies are installed by running npm install from the project directory.
 
