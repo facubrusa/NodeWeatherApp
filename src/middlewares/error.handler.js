@@ -11,8 +11,9 @@ function errorHandler(err, req, res, next) {
     } else {
         // If the error isn't controlated for boom, create general error handler
         res.status(500).json({
-            message: err.message,
-            stack: err.stack,
+            statusCode: 500,
+            error: err.stack,
+            message: err.message
         });
     }
     next();

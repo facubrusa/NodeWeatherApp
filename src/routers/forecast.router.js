@@ -8,7 +8,7 @@ const router = express.Router();
 const locationService = new LocationService();
 const forecastService = new ForecastService();
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
     try {
         // get client ip
         const clientIp = await locationService.getClientIp(req);
@@ -20,73 +20,22 @@ router.get('/', async (req, res) => {
         // get forecast weather
         const forecast = await forecastService.getByCity(city);
 
-        let newForecast = [];
-        forecast.forEach(weather => {
-            const { date, max_temp, min_temp, icon, description } = weather;
-
-            const weatherTemps = `${parseInt(max_temp)} / ${parseInt(min_temp)}°C`;
-            const weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
-            const newWeather = {
-                date: date,
-                icon: weatherIcon,
-                temps: weatherTemps,
-                description
-            };
-            newForecast.push(newWeather);
-        });
-        res.render('forecast', {
-            forecast: newForecast.slice(0, 5),
-            error: null,
-            city: city
-        });
+        res.status(200).json(forecast.slice(0, 5));
     } catch (error) {
-        res.render('forecast', {
-            forecast: null,
-            error: 'Error, please try again',
-            city: null
-        });
+        next(error);
     }
 });
 
-router.get('/:city', async (req, res) => {
+router.get('/:city', async (req, res, next) => {
     try {
         const { city } = req.params;
-
-        // Validations
-        if (!city || isFinite(city)) {
-            throw new Error('Please, enter a city');
-        }
 
         // get forecast weather
         const forecast = await forecastService.getByCity(city);
 
-        let newForecast = [];
-        forecast.forEach(weather => {
-            const { date, max_temp, min_temp, icon, description } = weather;
-
-            const weatherTemps = `${parseInt(max_temp)} / ${parseInt(min_temp)}°C`;
-            const weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
-            const newWeather = {
-                date: date,
-                icon: weatherIcon,
-                temps: weatherTemps,
-                description
-            };
-            newForecast.push(newWeather);
-        });
-        res.render('forecast', {
-            forecast: newForecast.slice(0, 5),
-            error: null,
-            city: city
-        });
+        res.status(200).json(forecast.slice(0, 5));
     } catch (error) {
-        res.render('forecast', {
-            forecast: null,
-            error: 'Error, please try again',
-            city: null
-        });
+        next(error);
     }
 });
 
