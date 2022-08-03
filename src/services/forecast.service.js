@@ -9,12 +9,20 @@ class ForecastService {
     }
 
     async getByCity(city) {
+        if (!city || isFinite(city)) {
+            throw boom.badRequest('Please, enter a city');
+        }
         const url = `${this.weatherApiUrl}/forecast?q=${city}&units=metric&appid=${config.apiKey}`;
         const res = await fetch(url);
         const forecast = await res.json();
 
-        if (forecast.cod !== '200') {
+        if (!forecast) {
             throw boom.conflict('Error getting forecast, please try again');
+        }
+
+        const responseCode = parseInt(forecast.cod);
+        if (responseCode !== 200) {
+            this.handleErrorByCode(responseCode);
         }
 
         const groupByDate = this.groupForecastByDate(forecast.list);
@@ -23,6 +31,19 @@ class ForecastService {
         // Generate one object for each day
         const newForecast = this.weatherByDate(dates, groupByDate);
         return newForecast;
+    }
+
+    handleErrorByCode(responseCode) {
+        switch(responseCode) {
+            case 400:
+                throw boom.badRequest('Bad request to OpenWeatherMap');
+            case 401:
+                throw boom.unauthorized('Invalid API key');
+            case 404:
+                throw boom.notFound('City not found, please try again');
+            default:
+                throw boom.conflict('Error getting forecast, please try again');
+        }
     }
 
     groupForecastByDate(list) {
@@ -67,7 +88,8 @@ class ForecastService {
                 main,
                 icon,
                 description,
-                date: weatherTime
+                date,
+                formated_date: weatherTime
             };
             forecast.push(newWeather);
         });
