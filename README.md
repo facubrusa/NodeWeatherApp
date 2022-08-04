@@ -6,6 +6,8 @@ This is a weather app made in NodeJS, with Express and OpenWeatherAPI.
 
 The project with views was deployed in this heroku link: https://nodejs-weather-appv1.herokuapp.com/v1/
 
+Routes documentation: https://drive.google.com/file/d/1hchQf36RKmjhekxhqZtoTDFj_srIWNfP/view
+
 ## Features
 
 - User's ability to search the weather or forecast of your current location.
